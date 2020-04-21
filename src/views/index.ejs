@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nouvelles NFL | Fantasy Football Américain</title>
+        <meta
+            name="description"
+            content="Lorsque vous décidez de participer à un pool de fantasy football, en essence, vous devenez le propriétaire, gérant et entraîneur de votre équipe. Chaque décision devient la vôtre, du repêchage à la formation partante en passant par la décision de soumettre un nom au ballottage. La production de vos joueurs sur le terrain décidera de votre destin chaque semaine. Le fantasy est un jeu passionnant qui est sûr d’augmenter votre intérêt pour les matchs de football. Si vous n’êtes pas un initié, ce jeu peut vous sembler intimidant, mais ne vous en faites pas, mes d’articles ont pour but de vous initier aux concepts importants et de guider vos décisions. Ma mission est simple; vous aider à gagner le plus d'affrontements possibles. Allez au-delà de la feuille de pointage en ma compagnie et découvrez comment prévoir les tendances et dominez vos ligues de fantasy."
+        />
+        <link
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <link href="../../css/styles.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+        <script>
+            let results = <%- JSON.stringify(results) %>;
+            window.__DATA__ = results;
+        </script>
+    </head>
+    <body>
+        <div id="root"><%- reactApp %></div>
+        <script src="../../dist/index.js" charset="utf-8"></script>
+        <script src="../../dist/vendor.js" charset="utf-8"></script>
+    </body>
+</html>
