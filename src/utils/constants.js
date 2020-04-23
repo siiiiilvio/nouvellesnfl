@@ -193,6 +193,18 @@ const positions = [
         abbr: 'LB',
         name: 'Secondeur',
     },
+    {
+        abbr: 'DT',
+        name: 'Bloqueur défensif',
+    },
+    {
+        abbr: 'DE',
+        name: 'Ailier défensif',
+    },
+    {
+        abbr: 'OT',
+        name: 'Bloqueur offensif',
+    },
 ];
 
 const resultsSample = [

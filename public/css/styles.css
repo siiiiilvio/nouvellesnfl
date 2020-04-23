@@ -30,6 +30,11 @@ textarea {
 .btn-danger {
   font-size: 0.65rem;
 }
+@media only screen and (max-width: 768px) {
+  .btn-danger {
+    font-size: 0.5rem;
+  }
+}
 .edit-news {
   font-size: 1.25em;
   text-align: left;
@@ -53,7 +58,7 @@ textarea {
   width: 20%;
   float: left;
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .edit-titles {
     width: 40%;
     font-size: 0.9em;
@@ -78,6 +83,12 @@ textarea {
   -moz-border-radius: 4px;
   border-radius: 10px;
 }
+@media only screen and (max-width: 768px) {
+  .player-news {
+    max-width: 95%;
+    padding: 20px 10px;
+  }
+}
 .player-news:nth-child(odd) {
   background-color: #fff;
 }
@@ -88,12 +99,11 @@ textarea {
   text-align: center;
 }
 .player-logo img {
-  width: 60px;
-  margin-right: 10px;
+  width: 45px;
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .player-info {
-    max-width: 78%;
+    max-width: 100%;
   }
 }
 .player-info div {
@@ -105,7 +115,7 @@ textarea {
 .player-info .name {
   font-size: 1.5em;
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .player-info .name {
     font-size: 1.5em;
     display: block;
@@ -115,7 +125,7 @@ textarea {
 .player-info .position {
   font-size: 1em;
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .player-info .team,
   .player-info .position {
     font-size: 0.8em;
@@ -125,7 +135,7 @@ textarea {
   text-align: left;
   font-size: 1.2em;
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .player-info .news-content {
     font-size: 1em;
     display: block;
@@ -135,7 +145,7 @@ textarea {
   text-align: left;
   font-size: 0.8em;
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .player-info .news-time {
     display: block;
     font-size: 0.65em;
