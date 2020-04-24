@@ -99,12 +99,14 @@ textarea {
 .player-logo {
     text-align: center;
     img {
-        width: 45px;
+        width: 60px;
     }
 }
 @media only screen and (max-width: 768px) {
     .player-info {
-        max-width: 100%;
+        img {
+            width: 45px;
+        }
     }
 }
 .player-info div {
@@ -117,9 +119,12 @@ textarea {
     font-size: 1.5em;
 }
 @media only screen and (max-width: 768px) {
-    .player-info .name {
-        font-size: 1.5em;
-        display: block;
+    .player-info {
+        max-width: 100%;
+        .name {
+            font-size: 1.5em;
+            display: block;
+        }
     }
 }
 .player-info {
