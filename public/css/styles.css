@@ -72,6 +72,9 @@ textarea {
   margin-left: 3%;
   margin-top: -2%;
 }
+.pagination {
+  justify-content: center;
+}
 .player-news {
   max-width: 700px;
   margin: 0 auto;
@@ -99,11 +102,11 @@ textarea {
   text-align: center;
 }
 .player-logo img {
-  width: 45px;
+  width: 60px;
 }
 @media only screen and (max-width: 768px) {
-  .player-info {
-    max-width: 100%;
+  .player-info img {
+    width: 45px;
   }
 }
 .player-info div {
@@ -116,6 +119,9 @@ textarea {
   font-size: 1.5em;
 }
 @media only screen and (max-width: 768px) {
+  .player-info {
+    max-width: 100%;
+  }
   .player-info .name {
     font-size: 1.5em;
     display: block;

@@ -2,6 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
 const db = process.env.DB;
+const displayCount = parseInt(process.env.DISPLAY_COUNT);
 
 const uri = `mongodb+srv://${username}:${password}@${db}/test?retryWrites=true&w=majority`;
 const options = {
@@ -28,6 +29,27 @@ const getFromDB = async amount => {
     return found || [];
 };
 
+const getFromDBForPageIndex = async index => {
+    const { client, collection } = await getCollection();
+    const skip = displayCount * index;
+    //write a query to retrieve the correct results from collection
+    const found = await collection
+        .find()
+        .skip(skip)
+        .limit(displayCount)
+        .sort({ $natural: -1 })
+        .toArray();
+    client.close();
+    return found || [];
+};
+
+const getCollectionCount = async () => {
+    const { client, collection } = await getCollection();
+    const collectionCount = await collection.countDocuments();
+    client.close();
+    return collectionCount;
+};
+
 const insertDB = async array => {
     const { client, collection } = await getCollection();
     const insert =
@@ -42,4 +64,6 @@ const insertDB = async array => {
 module.exports = {
     getFromDB,
     insertDB,
+    getCollectionCount,
+    getFromDBForPageIndex,
 };

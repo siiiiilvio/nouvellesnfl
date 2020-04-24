@@ -18,8 +18,10 @@
         <meta property="og:image" content="../images/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script>
-            let results = <%- JSON.stringify(results) %>;
-            window.__DATA__ = results;
+            const results = <%- JSON.stringify(results) %>;
+            const pagination = <%- JSON.stringify(pagination) %>;
+            window.__DATA__RESULTS__ = results;
+            window.__DATA__PAGINATION__ = pagination;
         </script>
     </head>
     <body>

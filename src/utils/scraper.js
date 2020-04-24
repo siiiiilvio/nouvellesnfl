@@ -2,7 +2,7 @@ const axios = require('axios');
 const memoryCache = require('memory-cache');
 const googleTranslate = require('@vitalets/google-translate-api');
 const parser = require('./parser');
-const { getFromDB, insertDB } = require('./db');
+const { getFromDB, insertDB, getCollectionCount } = require('./db');
 const scrapeTarget = process.env.SCRAPE_TARGET;
 const displayCount = parseInt(process.env.DISPLAY_COUNT);
 
@@ -27,8 +27,14 @@ const getNews = async scrape => {
         //concatenate the missing news and existing news into one array
         const allNews = insertedNews.concat(existingNews);
         allNews.length = displayCount;
-        //update the cache to indefinite duration
+        //update the cache for news
         memoryCache.put(`__express__homepage`, allNews);
+
+        //get new collection count
+        const collectionCount = await getCollectionCount();
+        //update the cache for collection count
+        memoryCache.put(`__express__count`, collectionCount);
+
         return allNews;
     }
     return existingNews;
@@ -36,7 +42,10 @@ const getNews = async scrape => {
 
 const diffArrays = (news, cache) => {
     const missingNews = news.filter(
-        uncached => !cache.some(cached => uncached.headline === cached.headline)
+        uncached =>
+            !cache.some(
+                cached => uncached.headline === cached.headline || uncached.news === cached.news
+            )
     );
     return missingNews || [];
 };
