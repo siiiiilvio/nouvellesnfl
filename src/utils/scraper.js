@@ -44,7 +44,9 @@ const diffArrays = (news, cache) => {
     const missingNews = news.filter(
         uncached =>
             !cache.some(
-                cached => uncached.headline === cached.headline || uncached.news === cached.news
+                cached =>
+                    uncached.headline.trim() === cached.headline.trim() ||
+                    uncached.news.trim() === cached.news.trim()
             )
     );
     return missingNews || [];
