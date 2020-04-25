@@ -205,6 +205,14 @@ const positions = [
         abbr: 'OT',
         name: 'Bloqueur offensif',
     },
+    {
+        abbr: 'K',
+        name: 'Botteur de précision',
+    },
+    {
+        abbr: 'P',
+        name: 'Botteur de dégagement',
+    },
 ];
 
 const resultsSample = [
