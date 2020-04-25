@@ -48,7 +48,7 @@
         "dev": "DEBUG=app,app:* nodemon --exec babel-node src/app.js",
         "build-files": "lessc public/css/styles.less public/css/styles.css && webpack -p",
         "build-server": "babel -d ./build ./src -s --copy-files",
-        "start": "npm run build-files && npm run build-server && node ./build/app.js",
+        "start": "npm run build-files && npm run build-server && NODE_ENV=production node ./build/app.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",

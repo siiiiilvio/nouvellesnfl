@@ -2,6 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
 const db = process.env.DB;
+const env = process.env.NODE_ENV;
 const displayCount = parseInt(process.env.DISPLAY_COUNT);
 
 const uri = `mongodb+srv://${username}:${password}@${db}/test?retryWrites=true&w=majority`;
@@ -13,7 +14,7 @@ const options = {
 const getCollection = async () => {
     const client = new MongoClient(uri, options);
     const connect = await client.connect();
-    const db = connect.db('news');
+    const db = connect.db(env === 'production' ? 'news' : 'news_dev');
     const collection = db.collection('newsListings');
     return {
         client,
