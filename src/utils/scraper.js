@@ -42,7 +42,12 @@ const getNews = async scrape => {
 
 const diffArrays = (news, cache) => {
     const missingNews = news.filter(
-        uncached => !cache.some(cached => uncached.headline.trim() === cached.headline.trim())
+        uncached =>
+            !cache.some(
+                cached =>
+                    uncached.headline.trim() === cached.headline.trim() ||
+                    uncached.news.trim() === cached.news.trim()
+            )
     );
     return missingNews || [];
 };
