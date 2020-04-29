@@ -1,5 +1,6 @@
 const SitemapGenerator = require('sitemap-generator');
-const host = process.env.HOST;
+const env = process.env.NODE_ENV;
+const host = env === 'production' ? process.env.PRODURL : process.env.HOST;
 const port = process.env.PORT;
 
 const sitemap = () => {

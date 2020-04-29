@@ -8,7 +8,10 @@ const NewsFeed = props => {
             {results.map(result => (
                 <div key={result._id} className="player-news row">
                     <div className="player-logo col-md-2 nopadding">
-                        <img src={`/images/${result.teamAbbr}.png`} />
+                        <img
+                            src={`/images/${result.teamAbbr}.png`}
+                            alt={teams.find(team => team.abbr === result.teamAbbr).name}
+                        />
                     </div>
                     <div className="player-info col-md-10">
                         <div className="player">
