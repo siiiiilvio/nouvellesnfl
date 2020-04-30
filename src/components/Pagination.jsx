@@ -1,4 +1,5 @@
 const React = require('react');
+const { getPaginationURL } = require('../utils/url.js')
 
 const Pagination = props => {
     const { pagination } = props;
@@ -12,7 +13,11 @@ const Pagination = props => {
                             parseInt(pagination.currentPage) === index + 1 ? 'active' : ''
                         }`}
                     >
-                        <a className="page-link" href={`/${index === 0 ? '' : index + 1}`}>
+                        <a className="page-link" href={getPaginationURL({ 
+                            type: pagination.type, 
+                            params: pagination.params, 
+                            index
+                        })}>
                             {index + 1}
                         </a>
                     </li>

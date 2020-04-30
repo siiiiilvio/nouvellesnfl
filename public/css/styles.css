@@ -118,6 +118,9 @@ textarea {
 .player-info .name {
   font-size: 1.5em;
 }
+.player-info .name a {
+  color: #000;
+}
 @media only screen and (max-width: 768px) {
   .player-info {
     max-width: 100%;
@@ -130,6 +133,10 @@ textarea {
 .player-info .team,
 .player-info .position {
   font-size: 1em;
+}
+.player-info .team a,
+.player-info .position a {
+  color: black;
 }
 @media only screen and (max-width: 768px) {
   .player-info .team,

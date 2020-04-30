@@ -8,15 +8,19 @@ const NewsFeed = props => {
             {results.map(result => (
                 <div key={result._id} className="player-news row">
                     <div className="player-logo col-md-2 nopadding">
-                        <img
-                            src={`/images/${result.teamAbbr}.png`}
-                            alt={teams.find(team => team.abbr === result.teamAbbr).name}
-                        />
+                        <a href={encodeURI(`/equipes?team=${result.team}`)}>
+                            <img
+                                src={`/images/${result.teamAbbr}.png`}
+                                alt={teams.find(team => team.abbr === result.teamAbbr).name}
+                            />
+                        </a>
                     </div>
                     <div className="player-info col-md-10">
                         <div className="player">
                             <p className="name">
-                                {result.player}{' '}
+                                <a href={encodeURI(`/joueur?name=${result.player}&pos=${result.position}&team=${result.team}`)}>
+                                    {result.player}{' '}
+                                </a>
                                 {result.injury ? (
                                     <button type="button" className="btn btn-danger float-right">
                                         {result.injury}
@@ -29,9 +33,11 @@ const NewsFeed = props => {
                                           .name
                                     : result.position}
                                 {', '}
-                                {teams.some(team => team.abbr === result.teamAbbr)
-                                    ? teams.find(team => team.abbr === result.teamAbbr).name
-                                    : result.teamAbbr}
+                                <a href={encodeURI(`/equipes?team=${result.team}`)}>
+                                    {teams.some(team => team.abbr === result.teamAbbr)
+                                        ? teams.find(team => team.abbr === result.teamAbbr).name
+                                        : result.teamAbbr}
+                                </a>
                             </p>
                         </div>
                         <div className="news-content">

@@ -30,18 +30,52 @@ const getFromDB = async amount => {
     return found || [];
 };
 
-const getFromDBForPageIndex = async index => {
+const getResultsForPage = async index => {
     const { client, collection } = await getCollection();
-    const skip = displayCount * index;
+    const skip = displayCount * (index - 1);
     //write a query to retrieve the correct results from collection
-    const found = await collection
-        .find()
-        .skip(skip)
-        .limit(displayCount)
-        .sort({ $natural: -1 })
-        .toArray();
+    const query = collection.find().sort({ $natural: -1 });
+    const count = await query.count();
+    const found = await query.skip(skip).limit(displayCount).toArray();
     client.close();
-    return found || [];
+    return {
+        results: found || [],
+        count,
+    };
+};
+
+const getResultsForPlayer = async ({ player, team, position, pageNum }) => {
+    const { client, collection } = await getCollection();
+    const skip = displayCount * (pageNum - 1);
+    //write a query to retrieve the correct results from collection
+    const query = collection
+        .find({
+            player,
+            team,
+            position,
+        })
+        .sort({ $natural: -1 });
+    const count = await query.count();
+    const found = await query.skip(skip).limit(displayCount).toArray();
+    client.close();
+    return {
+        results: found || [],
+        count,
+    };
+};
+
+const getResultsForTeam = async ({ team, pageNum }) => {
+    const { client, collection } = await getCollection();
+    const skip = displayCount * (pageNum - 1);
+    //write a query to retrieve the correct results from collection
+    const query = collection.find({ team }).sort({ $natural: -1 });
+    const count = await query.count();
+    const found = await query.skip(skip).limit(displayCount).toArray();
+    client.close();
+    return {
+        results: found || [],
+        count,
+    };
 };
 
 const getCollectionCount = async () => {
@@ -65,6 +99,8 @@ const insertDB = async array => {
 module.exports = {
     getFromDB,
     insertDB,
+    getResultsForPage,
+    getResultsForPlayer,
+    getResultsForTeam,
     getCollectionCount,
-    getFromDBForPageIndex,
 };

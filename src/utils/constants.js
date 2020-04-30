@@ -213,6 +213,14 @@ const positions = [
         abbr: 'P',
         name: 'Botteur de dégagement',
     },
+    {
+        abbr: 'CB',
+        name: 'Demi de coin',
+    },
+    {
+        abbr: 'OG',
+        name: 'Garde offensif',
+    },
 ];
 
 const resultsSample = [

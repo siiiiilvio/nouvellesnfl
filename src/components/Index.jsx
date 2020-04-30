@@ -12,7 +12,7 @@ class Index extends React.Component {
                 {/* <TeamSelect />
                 <PositionSelect /> */}
                 <NewsFeed results={results} />
-                <Pagination pagination={pagination} />
+                { pagination.pages > 1 && <Pagination pagination={pagination} />}
             </React.Fragment>
         );
     }
