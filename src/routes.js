@@ -1,6 +1,7 @@
 const express = require('express');
 const React = require('react');
 const { renderToString } = require('react-dom/server');
+const path = require('path');
 const Index = require('./components/Index');
 const player = require('./controllers/player');
 const team = require('./controllers/team');
@@ -25,6 +26,11 @@ router.get('/equipe*', team, (req, res) => {
 
 router.get('/page/:index', page, (req, res) => {
     renderView(res);
+});
+
+router.get('/sitemap.xml', function (req, res) {
+    console.log(__dirname);
+    res.sendFile(path.join(__dirname, '../sitemap.xml'));
 });
 
 router.get('', homepage, (req, res) => {

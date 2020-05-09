@@ -8,7 +8,6 @@ const sitemap = () => {
         maxDepth: 0,
         filepath: './sitemap.xml',
         maxEntriesPerFile: 50000,
-        stripQuerystring: true,
     });
 
     //start the crawler

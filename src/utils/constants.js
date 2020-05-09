@@ -221,6 +221,10 @@ const positions = [
         abbr: 'OG',
         name: 'Garde offensif',
     },
+    {
+        abbr: 'C',
+        name: 'Centre',
+    },
 ];
 
 const resultsSample = [
