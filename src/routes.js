@@ -29,7 +29,6 @@ router.get('/page/:index', page, (req, res) => {
 });
 
 router.get('/sitemap.xml', function (req, res) {
-    console.log(__dirname);
     res.sendFile(path.join(__dirname, '../sitemap.xml'));
 });
 

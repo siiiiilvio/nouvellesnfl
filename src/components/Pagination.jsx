@@ -5,7 +5,7 @@ const Pagination = props => {
     const { pagination } = props;
     return (
         <nav aria-label="Page navigation example">
-            <ul className="pagination">
+            <ul className="pagination flex-wrap">
                 {[...Array(pagination.pages)].map((page, index) => (
                     <li
                         key={index}
