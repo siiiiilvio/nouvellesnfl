@@ -6,6 +6,7 @@ const Index = require('./components/Index');
 const player = require('./controllers/player');
 const team = require('./controllers/team');
 const page = require('./controllers/page');
+const { replacePlusChar } = require('./utils/url');
 const homepage = require('./controllers/homepage');
 
 const router = express.Router();
@@ -16,11 +17,11 @@ const renderView = res => {
     res.status(200).render('index', { reactApp, results, pagination });
 };
 
-router.get('/joueur*', player, (req, res) => {
+router.get('/joueur*', replacePlusChar, player, (req, res) => {
     renderView(res);
 });
 
-router.get('/equipe*', team, (req, res) => {
+router.get('/equipe*', replacePlusChar, team, (req, res) => {
     renderView(res);
 });
 

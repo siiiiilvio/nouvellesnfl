@@ -1,5 +1,6 @@
 const React = require('react');
 const { teams, positions } = require('../utils/constants');
+const { specialEncodeURI } = require('../utils/url');
 
 const NewsFeed = props => {
     const { results } = props;
@@ -8,7 +9,7 @@ const NewsFeed = props => {
             {results.map(result => (
                 <div key={result._id} className="player-news row">
                     <div className="player-logo col-md-2 nopadding">
-                        <a href={encodeURI(`/equipes?team=${result.team}`)}>
+                        <a href={specialEncodeURI(`/equipes?team=${result.team}`)}>
                             <img
                                 src={`/images/${result.teamAbbr}.png`}
                                 alt={teams.find(team => team.abbr === result.teamAbbr).name}
@@ -18,7 +19,11 @@ const NewsFeed = props => {
                     <div className="player-info col-md-10">
                         <div className="player">
                             <p className="name">
-                                <a href={encodeURI(`/joueur?name=${result.player}&pos=${result.position}&team=${result.team}`)}>
+                                <a
+                                    href={specialEncodeURI(
+                                        `/joueur?name=${result.player}&pos=${result.position}&team=${result.team}`
+                                    )}
+                                >
                                     {result.player}{' '}
                                 </a>
                                 {result.injury ? (
@@ -33,7 +38,7 @@ const NewsFeed = props => {
                                           .name
                                     : result.position}
                                 {', '}
-                                <a href={encodeURI(`/equipes?team=${result.team}`)}>
+                                <a href={specialEncodeURI(`/equipes?team=${result.team}`)}>
                                     {teams.some(team => team.abbr === result.teamAbbr)
                                         ? teams.find(team => team.abbr === result.teamAbbr).name
                                         : result.teamAbbr}
