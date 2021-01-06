@@ -5,7 +5,7 @@
     "main": "index.js",
     "dependencies": {
         "@vitalets/google-translate-api": "github:vitalets/google-translate-api",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "babel-loader": "^8.1.0",
         "cheerio": "^1.0.0-rc.3",
         "cron": "^1.8.2",
